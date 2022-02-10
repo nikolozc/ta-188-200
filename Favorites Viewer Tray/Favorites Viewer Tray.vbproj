@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4BFCF2C1-EA86-4E9E-AB03-131988BB553F}</ProjectGuid>
+    <ProjectGuid>{BD9E9A22-BFE9-4CC4-9CB0-F303ABD4151F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Video_188_NetFrameWork.My.MyApplication</StartupObject>
-    <RootNamespace>Video_188_NetFrameWork</RootNamespace>
-    <AssemblyName>Video_188_NetFrameWork</AssemblyName>
+    <StartupObject>Favorites_Viewer_Tray.My.MyApplication</StartupObject>
+    <RootNamespace>Favorites_Viewer_Tray</RootNamespace>
+    <AssemblyName>Favorites Viewer Tray</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Video_188_NetFrameWork.xml</DocumentationFile>
+    <DocumentationFile>Favorites Viewer Tray.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Video_188_NetFrameWork.xml</DocumentationFile>
+    <DocumentationFile>Favorites Viewer Tray.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -73,11 +73,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Favorites.vb" />
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -95,8 +95,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="WebFavorite.vb" />
-    <Compile Include="WebFavoriteCollection.vb" />
     <Compile Include="WebFavoritesMenuItem.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -123,6 +121,12 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Internet Favorites\Internet Favorites.vbproj">
+      <Project>{f81f4b23-3030-463a-9ea7-ea1ed97dfa1d}</Project>
+      <Name>Internet Favorites</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -22,11 +22,14 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.lstFavorites = New System.Windows.Forms.ListView()
         Me.hdrName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.hdrUrl = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.lnkURL = New System.Windows.Forms.LinkLabel()
         Me.btnRefresh = New System.Windows.Forms.Button()
+        Me.icnFavorites = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.SuspendLayout()
         '
         'lstFavorites
@@ -74,6 +77,12 @@ Partial Class Form1
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
+        'icnFavorites
+        '
+        Me.icnFavorites.Icon = CType(resources.GetObject("icnFavorites.Icon"), System.Drawing.Icon)
+        Me.icnFavorites.Text = "Right Click For Favorites"
+        Me.icnFavorites.Visible = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -83,6 +92,7 @@ Partial Class Form1
         Me.Controls.Add(Me.lnkURL)
         Me.Controls.Add(Me.lstFavorites)
         Me.Name = "Form1"
+        Me.ShowInTaskbar = False
         Me.Text = "My Favorites"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -94,4 +104,5 @@ Partial Class Form1
     Friend WithEvents hdrUrl As ColumnHeader
     Friend WithEvents lnkURL As LinkLabel
     Friend WithEvents btnRefresh As Button
+    Friend WithEvents icnFavorites As NotifyIcon
 End Class

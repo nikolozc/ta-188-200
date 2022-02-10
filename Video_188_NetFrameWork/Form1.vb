@@ -22,18 +22,37 @@
 
     Private Sub LoadFavorites()
         lstFavorites.Items.Clear()
+        Dim objMenu As New ContextMenu
         Try
             Using objFavorites As New Favorites
                 objFavorites.ScanFavorites()
                 For Each objWebFavorite As WebFavorite In objFavorites.FavoritesCollection
                     Dim objListViewItem As New ListViewItem
+                    Dim objItem As New WebFavoritesMenuItem(objWebFavorite)
+                    objMenu.MenuItems.Add(objItem)
                     objListViewItem.Text = objWebFavorite.Name
                     objListViewItem.SubItems.Add(objWebFavorite.URL)
                     lstFavorites.Items.Add(objListViewItem)
                 Next
             End Using
+            objMenu.MenuItems.Add("-")
+            objMenu.MenuItems.Add(New ExitMenuItem())
+            icnFavorites.ContextMenu = objMenu
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+
+    Private Sub icnFavorites_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles icnFavorites.MouseDoubleClick
+        If Me.WindowState = FormWindowState.Minimized Then
+            Me.Show()
+            Me.WindowState = FormWindowState.Normal
+        End If
+    End Sub
+
+    Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        If Me.WindowState = FormWindowState.Minimized Then
+            Me.Hide()
+        End If
     End Sub
 End Class
